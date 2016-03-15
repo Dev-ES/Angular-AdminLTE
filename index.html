@@ -1,19 +1,37 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="App">
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>AdminLTE | Dashboard</title>
+	<title>Angular AdminLTE | Dashboard</title>
 	<link rel="stylesheet" type="text/css" href="lib/bootstrap/dist/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="lib/bootstrap/dist/css/bootstrap-theme.min.css">
 	<link rel="stylesheet" type="text/css" href="css/AdminLTE.css">
-	<script src="lib/angular/angular.min.js" type="text/javascript" charset="utf-8" async defer></script>
+	<link rel="stylesheet" type="text/css" href="lib/font-awesome/css/font-awesome.min.css">
+	<script src="lib/angular/angular.min.js" type="text/javascript" charset="utf-8"></script>
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+	<![endif]-->
+
 </head>
-<body>
-	
-	
+<body class="skin-blue" ng-controller="Main as main" style="min-height: 3200px;">
+
+	<head-menu params="main.headMenu"></head-menu>
 
 	<script src="lib/jquery/dist/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="lib/bootstrap/dist/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+
+	<!--Module APP-->
+	<script src="js/common/module.js" charset="utf-8"></script>
+	<!--Services-->
+	<script src="" charset="utf-8"></script>
+	<!--Controllers-->
+	<script src="js/common/controllers/main.js" charset="utf-8"></script>
+	<!--Directives-->
+	<script src="js/common/directives/head-menu.js" charset="utf-8"></script>
+
 </body>
 </html>
