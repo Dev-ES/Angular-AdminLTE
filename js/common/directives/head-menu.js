@@ -33,7 +33,7 @@
                         $(scope.params.nav[index]).appendTo($nav);
                     }
                 }
-            })
+            });
 
         }
     }
