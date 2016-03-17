@@ -1,0 +1,27 @@
+{
+  "name": "ngadminlte",
+  "version": "0.0.1",
+  "description": "[![Flattr this git repo](http://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=ahmadalibaloch&url=http://about.me/ahmadalibaloch&title=Angular-AdminLTE&language=&tags=github&category=software) ------------------------",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davidpvilaca/Angular-AdminLTE.git"
+  },
+  "author": "David Vilaca <david@xdevel.com.br>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/davidpvilaca/Angular-AdminLTE/issues"
+  },
+  "homepage": "https://github.com/davidpvilaca/Angular-AdminLTE#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-jshint": "^2.0.0",
+    "jshint": "^2.9.1",
+    "jshint-jsx": "^0.4.1",
+    "jshint-stylish": "^2.1.0",
+    "map-stream": "0.0.6"
+  }
+}
