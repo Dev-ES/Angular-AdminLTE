@@ -16,6 +16,7 @@
     "angular": "^1.5.0",
     "jquery": "^2.2.1",
     "bootstrap": "^3.3.6",
-    "font-awesome": "^4.5.0"
+    "font-awesome": "^4.5.0",
+    "Ionicons": "ionicons#^2.0.1"
   }
 }

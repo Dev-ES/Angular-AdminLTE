@@ -7,6 +7,7 @@
 	<link rel="stylesheet" type="text/css" href="lib/bootstrap/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/AdminLTE.css">
 	<link rel="stylesheet" type="text/css" href="lib/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="lib/Ionicons/css/ionicons.min.css">
 	<script src="lib/angular/angular.min.js" type="text/javascript" charset="utf-8"></script>
 
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -20,6 +21,9 @@
 <body class="skin-blue" ng-controller="Main as main" style="min-height: 3200px;">
 
 	<head-menu params="main.headMenu"></head-menu>
+	<div class="col-md-3">
+		<small-box params="main.box1"></small-box>
+	</div>
 
 	<script src="lib/jquery/dist/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="lib/bootstrap/dist/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
@@ -32,6 +36,7 @@
 	<script src="js/common/controllers/main.js" charset="utf-8"></script>
 	<!--Directives-->
 	<script src="js/common/directives/head-menu.js" charset="utf-8"></script>
+	<script src="js/common/directives/small-box.js" charset="utf-8"></script>
 
 </body>
 </html>

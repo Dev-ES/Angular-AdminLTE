@@ -21,6 +21,14 @@
             nav: [htmlMenu1, htmlMenu2]
         };
 
+        vm.box1 = {
+            id: 'smallBox1',
+            icon: 'ion ion-bag',
+            title: '150',
+            text: 'New Orders',
+            footer: 'More info <i class="fa fa-arrow-circle-right"></i>'
+        };
+
     }
 
 })();
