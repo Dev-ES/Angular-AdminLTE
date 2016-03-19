@@ -1,11 +1,11 @@
 // Karma configuration
-// Generated on Fri Mar 18 2016 14:51:33 GMT-0300 (BRT)
+// Generated on Mon Nov 09 2015 18:17:24 GMT-0200 (BRST)
 
 module.exports = function(config) {
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
-    basePath: '..',
+    basePath: '.',
 
 
     // frameworks to use
@@ -15,20 +15,21 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      '*Spec.js'
+      'lib/angular/angular.min.js',
+      'lib/jquery/dist/jquery.min.js',
+      'lib/bootstrap/dist/js/bootstrap.min.js',
+      'lib/angular-mocks/angular-mocks.js',
+      'js/common/module.js',
+      'js/common/controllers/main.js',
+      'js/common/directives/head-menu.js',
+      'js/common/directives/small-box.js',
+      'test/**/*Spec.js'
     ],
 
 
     // list of files to exclude
     exclude: [
     ],
-
-
-    // preprocess matching files before serving them to the browser
-    // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
-    preprocessors: {
-    },
-
 
     // test results reporter to use
     // possible values: 'dots', 'progress'
@@ -43,14 +44,13 @@ module.exports = function(config) {
     // enable / disable colors in the output (reporters and logs)
     colors: true,
 
-
     // level of logging
     // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
     logLevel: config.LOG_INFO,
 
 
     // enable / disable watching file and executing tests whenever any file changes
-    autoWatch: true,
+    autoWatch: false,
 
 
     // start these browsers
@@ -60,10 +60,10 @@ module.exports = function(config) {
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
-    singleRun: false,
+    singleRun: true,
 
     // Concurrency level
-    // how many browser should be started simultaneous
+    // how many browser should be started simultanous
     concurrency: Infinity
   })
-}
+};
