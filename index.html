@@ -21,8 +21,8 @@
 <body class="skin-blue" ng-controller="Main as main" style="min-height: 3200px;">
 
 	<head-menu params="main.headMenu"></head-menu>
-	<div class="col-md-3">
-		<small-box params="main.box1"></small-box>
+	<div class="wrapper row-offcanvas row-offcanvas-left">
+		<sidebar-left params="main.sideBarLeft"></sidebar-left>
 	</div>
 
 	<script src="lib/jquery/dist/jquery.min.js" type="text/javascript" charset="utf-8"></script>
@@ -37,6 +37,7 @@
 	<!--Directives-->
 	<script src="js/common/directives/head-menu.js" charset="utf-8"></script>
 	<script src="js/common/directives/small-box.js" charset="utf-8"></script>
+	<script src="js/common/directives/sidebar-left.js" charset="utf-8"></script>
 
 </body>
 </html>

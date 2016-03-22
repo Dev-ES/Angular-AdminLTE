@@ -29,6 +29,10 @@
             footer: 'More info <i class="fa fa-arrow-circle-right"></i>'
         };
 
+        vm.sideBarLeft = {
+
+        };
+
     }
 
 })();
