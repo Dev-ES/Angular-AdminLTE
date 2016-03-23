@@ -30,7 +30,78 @@
         };
 
         vm.sideBarLeft = {
-
+            user: {
+                image: {class: 'img-circle', alt: 'Avatar', src: 'img/avatar3.png'},
+                salutation: 'Hello',
+                name: 'Jane',
+                status: {
+                    class: "text-success",
+                    text: 'Online'
+                }
+            },
+            search: {
+                placeholder: 'Search...',
+                click: function(){}
+            },
+            menus: [
+                {
+                    active: true,
+                    icon: 'fa fa-dashboard',
+                    text: 'Dashboard',
+                    href: 'javascript:void(0)'
+                },
+                {
+                    icon: 'fa fa-th',
+                    text: 'Widgets',
+                    href: 'javascript:void(0)'
+                },
+                {
+                    icon: 'fa fa-bar-chart-o',
+                    text: 'Charts',
+                    href: 'javascript:void(0)',
+                    subMenus: [
+                        {
+                            text: 'Morris',
+                            href: 'javascript:void(0)'
+                        },
+                        {
+                            text: 'Flot',
+                            href: 'javascript:void(0)'
+                        },
+                        {
+                            text: 'Inline charts',
+                            href: 'javascript:void(0)'
+                        }
+                    ]
+                },
+                {
+                    icon: 'fa fa-laptop',
+                    text: 'UI Elements',
+                    href: 'javascript:void(0)',
+                    subMenus: [
+                        {
+                            text: 'General',
+                            href: 'javascript:void(0)'
+                        },
+                        {
+                            text: 'Icons',
+                            href: 'javascript:void(0)'
+                        },
+                        {
+                            text: 'Buttons',
+                            href: 'javascript:void(0)'
+                        },
+                        {
+                            text: 'Sliders',
+                            href: 'javascript:void(0)'
+                        },
+                        {
+                            text: 'Timeline',
+                            href: 'javascript:void(0)'
+                        }
+                    ]
+                }
+            ]
         };
 
     }
