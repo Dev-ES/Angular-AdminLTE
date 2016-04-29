@@ -1,16 +1,16 @@
 /**
- * Created by david on 14/03/16.
+ * Created by david on 28/04/16.
  */
 (function(){
     'use strict';
-
-    angular.module('App')
+    angular
+        .module('app.components')
         .directive('headMenu', ['$timeout', headMenu]);
-
+    
     function headMenu($timeout){
 
         return {
-                templateUrl: 'partials/common/directives/head-menu.html',
+            templateUrl: 'app/components/head-menu.html',
             restrict: 'E',
             link: link,
             replace: true,
@@ -26,16 +26,7 @@
             scope.params.logo = angular.isDefined(scope.params.logo)?scope.params.logo:{};
             scope.params.id = angular.isDefined(scope.params.id)?scope.params.id:Math.round(Math.random()*10000);
 
-            $timeout(function(){
-                var $nav = $("#"+scope.params.id);
-                if(angular.isDefined(scope.params.nav) && !!scope.params.nav.length){
-                    for (var index in scope.params.nav){
-                        $(scope.params.nav[index]).appendTo($nav);
-                    }
-                }
-            });
-
         }
     }
-
+    
 })();

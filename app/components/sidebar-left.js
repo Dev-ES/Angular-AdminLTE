@@ -3,12 +3,12 @@
  */
 (function(){
     'use strict';
-    angular.module('App')
+    angular.module('app.components')
         .directive('sidebarLeft', ['$timeout', sidebarLeft]);
 
     function sidebarLeft($timeout){
         return {
-            templateUrl: 'partials/common/directives/sidebar-left.html',
+            templateUrl: 'app/components/sidebar-left.html',
             restrict: 'E',
             link: link,
             replace: true,
@@ -17,7 +17,12 @@
             }
         };
 
-        function link(scope){
+        function link(scope, $el){
+
+            if (angular.isUndefined(scope.params) || !scope.params){
+                throw new Error("params não definido!");
+            }
+            scope.params.id = angular.isUndefined(scope.params.id)?"sideBarLeft"+(Math.round(Math.random()*10)):scope.params.id;
 
             $timeout(function(){
 
@@ -40,7 +45,6 @@
                     $this.parent().addClass("active");
 
                 });
-
 
             });
         }

@@ -7,7 +7,7 @@ var karmaServer = require('karma').Server;
 
 gulp.task('hint', function() {
 
-    return gulp.src('./js/**/*.js')
+    return gulp.src('./app/**/*.js')
         .pipe(jshint({ linter: require('jshint-jsx').JSXHINT }))
         .pipe(jshint.reporter('jshint-stylish'))
         .pipe(jshint.reporter('fail'));

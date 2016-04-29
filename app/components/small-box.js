@@ -1,14 +1,14 @@
 /**
- * Created by david on 17/03/16.
+ * Created by david on 29/04/16.
  */
 (function(){
     'use strict';
-    angular.module('App')
-        .directive('smallBox', ['$timeout', smallBox]);
+    angular.module('app.components')
+        .directive('smallBox', ['$timeout', sidebarLeft]);
 
-    function smallBox($timeout){
+    function sidebarLeft($timeout){
         return {
-            templateUrl: 'partials/common/directives/small-box.html',
+            templateUrl: 'app/components/small-box.html',
             restrict: 'E',
             link: link,
             replace: true,
@@ -18,7 +18,6 @@
         };
 
         function link(scope){
-
             scope.params = !!scope.params?scope.params:{};
             scope.params.id = !!scope.params.id?scope.params.id:'sb_'+Math.roud(Math.random()*10024);
 
