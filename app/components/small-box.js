@@ -19,8 +19,8 @@
 
         function link(scope){
             scope.params = !!scope.params?scope.params:{};
-            scope.params.id = !!scope.params.id?scope.params.id:'sb_'+Math.roud(Math.random()*10024);
-
+            //noinspection JSPrimitiveTypeWrapperUsage
+            scope.params.id = !!scope.params.id?scope.params.id:'sb_'+Math.round(Math.random()*1024);
             $timeout(function(){
                 var $footer = $($.parseHTML(scope.params.footer));
                 $footer.appendTo($("#footer_"+scope.params.id));

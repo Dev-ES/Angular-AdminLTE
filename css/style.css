@@ -1,3 +1,12 @@
+body {
+    position: relative;
+    float: left;
+    overflow: hidden;
+    height: auto;
+    width: 100%;
+}
+
+/* Menu lateral e view*/
 aside.left-side a:hover{
     cursor: pointer;
 }
