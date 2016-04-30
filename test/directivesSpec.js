@@ -2,16 +2,21 @@
  * Created by david on 18/03/16.
  */
 describe("Directives", function(){
-    var $rootScope, $httpBackend, $scope, $controller, $location, $timeout, $compile;
+    var $rootScope, $httpBackend, $scope, $controller, $location, $timeout, $compile, crumble;
     beforeEach(function() {
         module('app');
-        inject(function($injector, _$httpBackend_, _$controller_, _$location_, _$timeout_, _$compile_) {
+        inject(function($injector, _$httpBackend_, _$controller_, _$location_, _$timeout_, _$compile_, _crumble_) {
             $rootScope = $injector.get('$rootScope');
             $httpBackend = _$httpBackend_;
             $controller = _$controller_;
             $location = _$location_;
             $timeout = _$timeout_;
             $compile = _$compile_;
+            crumble = _crumble_;
+
+
+            $httpBackend.when('GET', 'app/sessions/app.home.html')
+                .respond(200, "")
 
         });
     });
@@ -165,6 +170,25 @@ describe("Directives", function(){
         expect(htmlSpec).toContain('params.title');
         expect(htmlSpec).toContain('params.icon');
         expect(htmlSpec).toContain('params.text');
+    });
+
+    it("Directive content-header", function(){
+
+        var htmlSmallBox = '<section class="content-header"><h1>{{route.current.label}} <small ng-bind="route.current.subTitle"></small></h1><ol class="breadcrumb"><li ng-repeat="bc in crumble.trail" class="active"><a ng-href="{{bc.path}}" ng-bind="bc.label" ng-if="!bc.active"></a>{{bc.active?bc.label:\'\'}}</li></ol></section>';
+        $httpBackend.when('GET', 'app/components/content-header.html')
+            .respond(200,htmlSmallBox);
+
+        $scope = $rootScope.$new();
+        $scope.crumble = crumble;
+
+        var element = angular.element('<content-header crumble="crumble"></content-header>');
+        $compile(element)($scope);
+        $httpBackend.flush();
+        $scope.$digest();
+        var htmlSpec = element.html();
+        expect(htmlSpec).toContain('crumble');
+        expect(htmlSpec).toContain('Home');
+        expect(htmlSpec).toContain('breadcrumb');
     });
 
 

@@ -20,6 +20,7 @@ module.exports = function (config) {
             'lib/bootstrap/dist/js/bootstrap.min.js',
             'lib/angular-mocks/angular-mocks.js',
             'lib/angular-route/angular-route.min.js',
+            'lib/angular-crumble/crumble.js',
             'app/app.module.js',
             'app/app.config.js',
             'app/app.main.js',
@@ -28,6 +29,7 @@ module.exports = function (config) {
             'app/components/head-menu.js',
             'app/components/sidebar-left.js',
             'app/components/small-box.js',
+            'app/components/content-header.js',
             'app/sessions/app.home.js',
 
 
