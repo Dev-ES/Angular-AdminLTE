@@ -2,9 +2,9 @@
  * Created by david on 18/03/16.
  */
 describe("Controllers", function(){
-    var $rootScope, $httpBackend, $scope, $controller, $location, $timeout, vm;
+    var $rootScope, $httpBackend, $scope, $controller, $location, $timeout, $routeProvider, vm;
     beforeEach(function() {
-        module('App');
+        module('app');
         inject(function($injector, _$httpBackend_, _$controller_, _$location_, _$timeout_) {
             $rootScope = $injector.get('$rootScope');
             $httpBackend = _$httpBackend_;
@@ -17,8 +17,9 @@ describe("Controllers", function(){
 
     it("Controller Main", function(){
         $scope = $rootScope.$new();
-        vm = $controller('Main', {"$scope" : $scope});
+        vm = $controller('main', {"$scope" : $scope});
         expect(vm).toBeDefined();
         expect(vm.headMenu).toBeDefined();
+        expect($location.path() === '/');
     });
 });

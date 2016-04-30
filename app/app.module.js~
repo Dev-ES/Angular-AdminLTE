@@ -3,5 +3,6 @@
  */
 (function(){
     'use strict';
-    angular.module('App', []);
+    angular
+        .module('app', ['app.home']);
 })();

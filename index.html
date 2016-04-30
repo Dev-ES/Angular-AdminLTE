@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="App">
+<html ng-app="app">
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,7 +8,22 @@
 	<link rel="stylesheet" type="text/css" href="css/AdminLTE.css">
 	<link rel="stylesheet" type="text/css" href="lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="lib/Ionicons/css/ionicons.min.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+
+	<!-- Start angular -->
 	<script src="lib/angular/angular.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="lib/angular-route/angular-route.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="lib/angular-crumble/crumble.js" type="text/javascript" charset="utf-8"></script>
+
+	<!--  APP  -->
+	<script src="app/app.module.js" type="text/javascript" charset="utf-8"></script>
+	<script src="app/app.config.js" type="text/javascript" charset="utf-8"></script>
+	<script src="app/app.main.js" type="text/javascript" charset="utf-8"></script>
+	<!-- MODULES -->
+	<script src="app/components/_module.js" type="text/javascript" charset="utf-8"></script>
+	<script src="app/sessions/_module.js" type="text/javascript" charset="utf-8"></script>
+	<!-- End angular -->
+
 
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -18,25 +33,43 @@
 	<![endif]-->
 
 </head>
-<body class="skin-blue" ng-controller="Main as main" style="min-height: 3200px;">
+<body class="skin-blue" ng-controller="main as MAIN">
 
-	<head-menu params="main.headMenu"></head-menu>
-	<div class="col-md-3">
-		<small-box params="main.box1"></small-box>
-	</div>
+<head-menu params="MAIN.headMenu"></head-menu>
 
-	<script src="lib/jquery/dist/jquery.min.js" type="text/javascript" charset="utf-8"></script>
-	<script src="lib/bootstrap/dist/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+	<div class="wrapper row-offcanvas row-offcanvas-left" style="height: 800px">
+	<sidebar-left params="MAIN.sideBarLeft"></sidebar-left>
 
-	<!--Module APP-->
-	<script src="js/common/module.js" charset="utf-8"></script>
-	<!--Services-->
-	<script src="" charset="utf-8"></script>
-	<!--Controllers-->
-	<script src="js/common/controllers/main.js" charset="utf-8"></script>
-	<!--Directives-->
-	<script src="js/common/directives/head-menu.js" charset="utf-8"></script>
-	<script src="js/common/directives/small-box.js" charset="utf-8"></script>
+	<aside class="right-side">
+		<content-header crumble="crumble"></content-header>
+
+		<!-- Angular View -->
+		<section class="content" ng-view>
+		</section>
+
+	</aside>
+
+</div>
+
+<!-- Start libs -->
+<script src="lib/jquery/dist/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="lib/bootstrap/dist/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+<!-- End libs -->
+
+<!-- Start angular dependencies -->
+
+<!-- COMPONENTS -->
+<script src="app/components/head-menu.js" type="text/javascript" charset="utf-8"></script>
+<script src="app/components/sidebar-left.js" type="text/javascript" charset="utf-8"></script>
+<script src="app/components/small-box.js" type="text/javascript" charset="utf-8"></script>
+<script src="app/components/content-header.js" type="text/javascript" charset="utf-8"></script>
+<!-- END COMPONENTS -->
+
+<!-- SESSIONS -->
+<script src="app/sessions/app.home.js" type="text/javascript" charset="utf-8"></script>
+<!-- END SESSIONS -->
+
+<!-- End angular dependencies -->
 
 </body>
 </html>
