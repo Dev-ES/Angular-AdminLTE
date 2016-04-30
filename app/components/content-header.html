@@ -1,0 +1,9 @@
+<section class="content-header">
+    <h1>{{route.current.label}} <small ng-bind="route.current.subTitle"></small></h1>
+    <ol class="breadcrumb">
+        <li ng-repeat="bc in crumble.trail" class="active">
+            <a ng-href="{{bc.path}}" ng-bind="bc.label" ng-if="!bc.active"></a>
+            {{bc.active?bc.label:''}}
+        </li>
+    </ol>
+</section>

@@ -6,15 +6,22 @@
     'use strict';
     angular
         .module('app')
-        .controller('main', [main]);
+        .controller('main', ['$rootScope', '$scope', '$location', 'crumble', main]);
     
-    function main(){
+    function main(rootScope, scope, location, crumble){
         /* jshint validthis: true */
         var vm = this;
-        
+
+        /* Breadcrumble configuration */
+        scope.crumble = crumble;
+        rootScope.$on('$routeChangeSuccess', function() {
+            crumble.update();
+            crumble.trail.map(crumbleActive)
+        });
+
         vm.headMenu = {
             logo: {
-                href: '/#/',
+                href: '/',
                 text: 'Angular AdminLTE'
             },
             toggleClick: leftMenuEvent
@@ -108,6 +115,11 @@
                 $('.left-side').toggleClass("collapse-left");
                 $(".right-side").toggleClass("strech");
             }
+        }
+
+        function crumbleActive(bc, i) {
+            bc.active = i===crumble.trail.length-1 && location.path() ===bc.path;
+            return bc;
         }
         
     }

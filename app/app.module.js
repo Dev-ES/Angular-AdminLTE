@@ -7,6 +7,7 @@
         .module('app', [
             'app.components',
             'app.sessions',
+            'crumble',
             'ngRoute'
         ]);
 })();

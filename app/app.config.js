@@ -17,9 +17,13 @@
             .when('/', {
                 templateUrl: 'app/sessions/app.home.html',
                 controller: 'home',
-                controllerAs: 'HOME'
+                controllerAs: 'HOME',
+                label: 'Home',
+                subTitle: 'Angular AdminLTE'
             })
-            .otherwise('/');
+            .otherwise({
+                redirectTo: '/404'
+            });
 
         // configure html5 to get links working on jsfiddle
         $locationProvider.html5Mode({

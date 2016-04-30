@@ -13,6 +13,7 @@
 	<!-- Start angular -->
 	<script src="lib/angular/angular.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="lib/angular-route/angular-route.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="lib/angular-crumble/crumble.js" type="text/javascript" charset="utf-8"></script>
 
 	<!--  APP  -->
 	<script src="app/app.module.js" type="text/javascript" charset="utf-8"></script>
@@ -39,8 +40,13 @@
 	<div class="wrapper row-offcanvas row-offcanvas-left" style="height: 800px">
 	<sidebar-left params="MAIN.sideBarLeft"></sidebar-left>
 
-	<!-- Angular View -->
-	<aside class="right-side" ng-view>
+	<aside class="right-side">
+		<content-header crumble="crumble"></content-header>
+
+		<!-- Angular View -->
+		<section class="content" ng-view>
+		</section>
+
 	</aside>
 
 </div>
@@ -56,6 +62,7 @@
 <script src="app/components/head-menu.js" type="text/javascript" charset="utf-8"></script>
 <script src="app/components/sidebar-left.js" type="text/javascript" charset="utf-8"></script>
 <script src="app/components/small-box.js" type="text/javascript" charset="utf-8"></script>
+<script src="app/components/content-header.js" type="text/javascript" charset="utf-8"></script>
 <!-- END COMPONENTS -->
 
 <!-- SESSIONS -->
