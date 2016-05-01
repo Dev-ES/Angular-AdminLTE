@@ -25,14 +25,15 @@
         <!-- /.search form -->
         <!-- sidebar menu -->
         <ul class="sidebar-menu">
-            <li ng-repeat="menu in params.menus" class="treeview" ng-class="{'active': !!menu.active}">
-                <a ng-href="{{menu.href}}">
+            <li ng-repeat="menu in params.menus" class="treeview" ng-class="{'active': !!menu.active}" id="{{menu._id}}">
+                <a ng-href="{{!!menu.subMenus?'':menu.href}}" ng-click="clickMenu(menu)">
                     <i ng-class="menu.icon"></i> <span ng-bind="menu.text"></span>
-                    <i ng-if="!!menu.subMenus&&!!menu.subMenus.length" class="fa fa-angle-left pull-right"></i>
+                    <i ng-if="!!menu.subMenus&&!!menu.subMenus.length" class="fa pull-right"
+                       ng-class="{'fa-angle-left': !menu.active, 'fa-angle-down': menu.active}"></i>
                 </a>
                 <ul class="treeview-menu" ng-if="!!menu.subMenus&&!!menu.subMenus.length">
-                    <li ng-repeat="subMenu in menu.subMenus">
-                        <a ng-href="{{subMenu.href}}">
+                    <li ng-repeat="subMenu in menu.subMenus" id="{{subMenu._id}}">
+                        <a ng-href="{{subMenu.href}}" ng-click="clickMenu(menu)">
                             <i class="fa fa-angle-double-right"></i> {{subMenu.text}}
                         </a>
                     </li>
