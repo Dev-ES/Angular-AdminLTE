@@ -26,6 +26,10 @@
             },
             toggleClick: leftMenuEvent
         };
+
+        vm.layoutOptions = {
+            
+        };
         
         vm.sideBarLeft = {
             id: 'leftMenu',

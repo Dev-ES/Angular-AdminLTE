@@ -4,9 +4,9 @@
 (function(){
     'use strict';
     angular.module('app.components')
-        .directive('smallBox', ['$timeout', sidebarLeft]);
+        .directive('smallBox', ['$timeout', smallBox]);
 
-    function sidebarLeft($timeout){
+    function smallBox($timeout){
         return {
             templateUrl: 'app/components/small-box.html',
             restrict: 'E',
