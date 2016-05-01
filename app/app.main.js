@@ -44,59 +44,58 @@
             },
             menus: [
                 {
-                    active: true,
                     icon: 'fa fa-dashboard',
                     text: 'Dashboard',
-                    href: ''
+                    href: 'dashboard'
                 },
                 {
                     icon: 'fa fa-th',
                     text: 'Widgets',
-                    href: ''
+                    href: 'widgets'
                 },
                 {
                     icon: 'fa fa-bar-chart-o',
                     text: 'Charts',
-                    href: '',
+                    href: 'charts',
                     subMenus: [
                         {
                             text: 'Morris',
-                            href: ''
+                            href: 'charts/morris'
                         },
                         {
                             text: 'Flot',
-                            href: ''
+                            href: 'charts/flot'
                         },
                         {
                             text: 'Inline charts',
-                            href: ''
+                            href: 'charts/flot'
                         }
                     ]
                 },
                 {
                     icon: 'fa fa-laptop',
                     text: 'UI Elements',
-                    href: '',
+                    href: 'ui-elements',
                     subMenus: [
                         {
                             text: 'General',
-                            href: ''
+                            href: 'ui-elements/general'
                         },
                         {
                             text: 'Icons',
-                            href: ''
+                            href: 'ui-elements/icons'
                         },
                         {
                             text: 'Buttons',
-                            href: ''
+                            href: 'ui-elements/buttons'
                         },
                         {
                             text: 'Sliders',
-                            href: ''
+                            href: 'ui-elements/sliders'
                         },
                         {
                             text: 'Timeline',
-                            href: ''
+                            href: 'ui-elements/timeline'
                         }
                     ]
                 }

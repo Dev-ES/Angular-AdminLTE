@@ -21,6 +21,13 @@
                 label: 'Home',
                 subTitle: 'Angular AdminLTE'
             })
+            .when('/dashboard', {
+                templateUrl: 'app/sessions/app.home.html',
+                controller: 'home',
+                controllerAs: 'HOME',
+                label: 'Dashboard',
+                subTitle: 'Control panel'
+            })
             .otherwise({
                 redirectTo: '/404'
             });

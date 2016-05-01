@@ -4,9 +4,9 @@
 (function(){
     'use strict';
     angular.module('app.components')
-        .directive('sidebarLeft', ['$timeout', sidebarLeft]);
+        .directive('sidebarLeft', ['$rootScope', '$location', sidebarLeft]);
 
-    function sidebarLeft($timeout){
+    function sidebarLeft(rootScope, location){
         return {
             templateUrl: 'app/components/sidebar-left.html',
             restrict: 'E',
@@ -17,36 +17,110 @@
             }
         };
 
-        function link(scope, $el){
-
+        function link(scope){
+            //Error if not have parameter
             if (angular.isUndefined(scope.params) || !scope.params){
                 throw new Error("params não definido!");
             }
             scope.params.id = angular.isUndefined(scope.params.id)?"sideBarLeft"+(Math.round(Math.random()*10)):scope.params.id;
-
-            $timeout(function(){
-
-                $("li.treeview > ul").parent().children("a").click(function(){
-                    var $this = $(this);
-                    var $active = $("li.treeview.active");
-                    var $menu = $this.parent().children(".treeview-menu");
-                    if($active.length) {
-                        $active.removeClass("active");
-                        if ($active[0] === $this.parent()[0]) {
-                            $this.children(".fa-angle-down").first().removeClass("fa-angle-down").addClass("fa-angle-left");
-                            $menu.slideUp();
-                            return;
-                        }
-                        $active.children(".treeview-menu").slideUp();
-                        $active.children("a").children(".fa-angle-down").first().removeClass("fa-angle-down").addClass("fa-angle-left");
+            
+            rootScope.$on('$routeChangeSuccess', function() {
+                scope.params.menus.forEach(function (menu) {
+                    var href = menu.href;
+                    if(href[0] != '/'){
+                        href = '/'+href;
                     }
-                    $menu.slideDown();
-                    $this.children(".fa-angle-left").first().removeClass("fa-angle-left").addClass("fa-angle-down");
-                    $this.parent().addClass("active");
-
+                    menu.active = href===location.path();
+                    if(angular.isDefined(menu.subMenus)){
+                        menu.subMenus.forEach(function (sm) {
+                            var href = sm.href;
+                            if(href[0] != '/'){
+                                href = '/'+href;
+                            }
+                            sm.active = href===location.path();
+                        })
+                    }
                 });
-
             });
+
+            //Id privados para cada menu e submenu
+            scope.params.menus.map(function (menu) {
+                menu._id = "menu_"+Math.round(Math.random()*1024);
+                if(angular.isDefined(menu.subMenus)){
+                    menu.subMenus.map(function (subMenu) {
+                        subMenu._id = menu._id+"_subMenu_"+Math.round(Math.random()*1024);
+                        return subMenu;
+                    });
+                }
+                return menu;
+            });
+
+            scope.clickMenu = clickMenu;
+            /**
+             * Enables or disables the menu and show or hide submenus according to the context
+             * @param menu
+             */
+            function clickMenu(menu) {
+
+                var actives = scope.params.menus.filter(function (el) {
+                    return !!el.active;
+                });
+                var hasSubMenu = angular.isDefined(menu.subMenus)&&!!menu.subMenus.length;
+
+                //Se o menu clicado for igual ao ativo n faz nada
+                if(actives.length===1&&actives[0]===menu)return;
+
+                //Se possui submenu e o atual está ativo simplesmente oculta-os
+                if(hasSubMenu&&menu.active){
+                    removeActive(menu,hasSubMenu);
+                    return;
+                }
+
+                //Se possui mais de 1 ativo e o atual clicado possui submenu
+                if(actives.length > 1 && hasSubMenu){
+                    actives.forEach(function (ac) {
+                        var hasAcSub = angular.isDefined(ac.subMenus);
+                        if(hasAcSub){
+                            removeActive(ac, hasAcSub);
+                        }
+                    })
+                }
+
+                //Se possui ativos e o atual clicado não possui submenus
+                if(actives.length && !hasSubMenu){
+                    actives.forEach(function (ac) {
+                        removeActive(ac, angular.isDefined(ac.subMenus));
+                    })
+                }
+
+                activeMenu(menu,hasSubMenu);
+
+
+            }
+
+            /**
+             * Activate menu and show submenus
+             * @param menu
+             * @param hasSubMenu
+             */
+            function activeMenu(menu, hasSubMenu) {
+                menu.active = true;
+                if(hasSubMenu){
+                    $("#"+menu._id).children(".treeview-menu").slideDown();
+                }
+            }
+
+            /**
+             * Dismiss menu and hide submenus
+             * @param menu
+             * @param hasSubMenu
+             */
+            function removeActive(menu, hasSubMenu) {
+                if(hasSubMenu){
+                    $("#"+menu._id).children(".treeview-menu").slideUp();
+                }
+                menu.active = false;
+            }
         }
 
     }
