@@ -3,6 +3,14 @@
  */
 (function(){
     'use strict';
+    /*Modules*/
+    angular
+        .module('app.components', []);
+    /*Sessions*/
+    angular
+        .module('app.sessions', []);
+
+    /*App*/
     angular
         .module('app', [
             'app.components',

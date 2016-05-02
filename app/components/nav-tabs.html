@@ -1,0 +1,11 @@
+<div class="nav-tabs-custom">
+    <ul class="nav nav-tabs">
+        <li ng-class="{'active': tab.active}" ng-repeat="tab in params">
+            <a data-target="{{'#'+tab.id}}" ng-bind="tab.title" data-toggle="tab"></a>
+        </li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane" ng-class="{'active': content.active}" ng-repeat="content in params" id="{{content.id}}">
+        </div>
+    </div>
+</div>

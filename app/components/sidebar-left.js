@@ -86,8 +86,13 @@
                 });
                 var hasSubMenu = angular.isDefined(menu.subMenus)&&!!menu.subMenus.length;
 
-                //Se o menu clicado for igual ao ativo n faz nada
-                if(actives.length===1&&actives[0]===menu)return;
+                //Se o menu clicado for igual ao ativo
+                if(actives.length===1&&actives[0]===menu){
+                    if(hasSubMenu){
+                        removeActive(menu, hasSubMenu);
+                    }
+                    return;
+                }
 
                 //Se possui submenu e o atual está ativo simplesmente oculta-os
                 if(hasSubMenu&&menu.active){

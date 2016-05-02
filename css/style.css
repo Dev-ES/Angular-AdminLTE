@@ -6,6 +6,10 @@ body {
     width: 100%;
 }
 
+.row-offcanvas{
+    min-height: 90vh;
+}
+
 /* Menu lateral e view*/
 aside.left-side a:hover{
     cursor: pointer;
@@ -19,4 +23,9 @@ aside.left-side a:hover{
     -moz-transition: left 0.5s ease-in-out, margin-left 0.5s ease-in-out;
     -o-transition: left 0.5s ease-in-out, margin-left 0.5s ease-in-out;
     transition: left 0.5s ease-in-out, margin-left 0.5s ease-in-out;
+}
+
+/* Directiva nav-tabs */
+ul.nav li a:hover{
+    cursor: pointer;
 }

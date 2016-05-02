@@ -5,9 +5,9 @@
     'use strict';
     angular
         .module('app.components')
-        .directive('contentHeader', ['$route', headMenu]);
+        .directive('contentHeader', ['$route', contentHeader]);
 
-    function headMenu(route){
+    function contentHeader(route){
 
         return {
             templateUrl: 'app/components/content-header.html',
