@@ -26,21 +26,40 @@
             
             rootScope.$on('$routeChangeSuccess', function() {
                 scope.params.menus.forEach(function (menu) {
-                    var href = menu.href;
-                    if(href[0] != '/'){
-                        href = '/'+href;
+
+                    var _hasSubMenu = angular.isDefined(menu.subMenus);
+
+                    //If a rota do menu é a mesma acessada no evento ative o menu
+                    if(activeByPath(menu, menu.href[0]==='/'?menu.href:'/'+menu.href)){
+                        return;
                     }
-                    menu.active = href===location.path();
-                    if(angular.isDefined(menu.subMenus)){
+
+                    if(_hasSubMenu){
                         menu.subMenus.forEach(function (sm) {
-                            var href = sm.href;
-                            if(href[0] != '/'){
-                                href = '/'+href;
-                            }
-                            sm.active = href===location.path();
-                        })
+                            activeByPath(menu, sm.href[0]==='/'?sm.href:'/'+sm.href)
+                        });
                     }
+
+                    removeActive(menu, _hasSubMenu);
+
                 });
+
+                /**
+                 * Ativa o menu se o path informado for igual ao acessado no momento
+                 * @param menu
+                 * @param _path
+                 * @returns {boolean}
+                 */
+                function activeByPath(menu, _path) {
+                    var _hasSubMenu = angular.isDefined(menu.subMenus);
+                    //Se a rota do menu é a mesma acessada no evento ative o menu
+                    if(_path === location.path()){
+                        activeMenu(menu, _hasSubMenu);
+                        return true;
+                    }
+                    return false;
+                }
+
             });
 
             //Id privados para cada menu e submenu
