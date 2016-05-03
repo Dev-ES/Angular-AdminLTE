@@ -11,7 +11,10 @@
         /* jshint validthis: true */
         var vm = this;
 
-        
+        vm.alert = {
+            type: 'danger',
+            content: '<b>DANGER ALERT:</b> This is a text. <p>This is a paragraph.</p>'
+        };
     }
 
 })();

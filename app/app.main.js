@@ -16,7 +16,7 @@
         scope.crumble = crumble;
         rootScope.$on('$routeChangeSuccess', function() {
             crumble.update();
-            crumble.trail.map(crumbleActive)
+            crumble.trail.map(crumbleActive);
         });
 
         vm.headMenu = {
@@ -25,6 +25,10 @@
                 text: 'Angular AdminLTE'
             },
             toggleClick: leftMenuEvent
+        };
+
+        vm.layoutOptions = {
+            
         };
         
         vm.sideBarLeft = {

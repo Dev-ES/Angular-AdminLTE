@@ -24,8 +24,6 @@ module.exports = function (config) {
             'app/app.module.js',
             'app/app.config.js',
             'app/app.main.js',
-            'app/components/_module.js',
-            'app/sessions/_module.js',
             'app/components/head-menu.js',
             'app/components/sidebar-left.js',
             'app/components/small-box.js',

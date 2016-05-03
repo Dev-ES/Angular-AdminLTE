@@ -19,9 +19,6 @@
 	<script src="app/app.module.js" type="text/javascript" charset="utf-8"></script>
 	<script src="app/app.config.js" type="text/javascript" charset="utf-8"></script>
 	<script src="app/app.main.js" type="text/javascript" charset="utf-8"></script>
-	<!-- MODULES -->
-	<script src="app/components/_module.js" type="text/javascript" charset="utf-8"></script>
-	<script src="app/sessions/_module.js" type="text/javascript" charset="utf-8"></script>
 	<!-- End angular -->
 
 
@@ -35,41 +32,45 @@
 </head>
 <body class="skin-blue" ng-controller="main as MAIN">
 
-<head-menu params="MAIN.headMenu"></head-menu>
+	<head-menu params="MAIN.headMenu"></head-menu>
 
-	<div class="wrapper row-offcanvas row-offcanvas-left" style="height: 800px">
-	<sidebar-left params="MAIN.sideBarLeft"></sidebar-left>
+	<div class="wrapper row-offcanvas row-offcanvas-left">
+		<sidebar-left params="MAIN.sideBarLeft"></sidebar-left>
 
-	<aside class="right-side">
-		<content-header crumble="crumble"></content-header>
+		<aside class="right-side">
+			<content-header crumble="crumble"></content-header>
 
-		<!-- Angular View -->
-		<section class="content" ng-view>
-		</section>
+			<!-- Angular View -->
+			<section class="content" ng-view>
+			</section>
 
-	</aside>
+		</aside>
 
-</div>
+	</div>
 
-<!-- Start libs -->
-<script src="lib/jquery/dist/jquery.min.js" type="text/javascript" charset="utf-8"></script>
-<script src="lib/bootstrap/dist/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
-<!-- End libs -->
+	<layout-options params="MAIN.layoutOptions"></layout-options>
 
-<!-- Start angular dependencies -->
+	<!-- Start libs -->
+	<script src="lib/jquery/dist/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="lib/bootstrap/dist/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+	<!-- End libs -->
 
-<!-- COMPONENTS -->
-<script src="app/components/head-menu.js" type="text/javascript" charset="utf-8"></script>
-<script src="app/components/sidebar-left.js" type="text/javascript" charset="utf-8"></script>
-<script src="app/components/small-box.js" type="text/javascript" charset="utf-8"></script>
-<script src="app/components/content-header.js" type="text/javascript" charset="utf-8"></script>
-<!-- END COMPONENTS -->
+	<!-- Start angular dependencies -->
 
-<!-- SESSIONS -->
-<script src="app/sessions/app.home.js" type="text/javascript" charset="utf-8"></script>
-<!-- END SESSIONS -->
+	<!-- COMPONENTS -->
+	<script src="app/components/head-menu.js" type="text/javascript" charset="utf-8"></script>
+	<script src="app/components/sidebar-left.js" type="text/javascript" charset="utf-8"></script>
+	<script src="app/components/small-box.js" type="text/javascript" charset="utf-8"></script>
+	<script src="app/components/content-header.js" type="text/javascript" charset="utf-8"></script>
+	<script src="app/components/layout-options.js" type="text/javascript" charset="utf-8"></script>
+	<script src="app/components/nav-tabs.js" type="text/javascript" charset="utf-8"></script>
+	<script src="app/components/alert.js" type="text/javascript" charset="utf-8"></script>
+	<!-- END COMPONENTS -->
 
-<!-- End angular dependencies -->
+	<!-- SESSIONS -->
+	<script src="app/sessions/app.home.js" type="text/javascript" charset="utf-8"></script>
+	<!-- END SESSIONS -->
 
+	<!-- End angular dependencies -->
 </body>
 </html>
