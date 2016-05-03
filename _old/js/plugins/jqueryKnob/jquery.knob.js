@@ -134,7 +134,7 @@
 
                 // fieldset = array of integer
                 this.v = {};
-                this.i = this.$.find('input')
+                this.i = this.$.find('input');
                 this.i.each(function(k) {
                     var $this = $(this);
                     s.i[k] = $this;
@@ -276,7 +276,7 @@
             }
 
             return this;
-        }
+        };
 
         this._draw = function () {
 
@@ -460,7 +460,7 @@
         // Utils
         this.h2rgba = function (h, a) {
             var rgb;
-            h = h.substring(1,7)
+            h = h.substring(1,7);
             rgb = [parseInt(h.substring(0,2),16)
                    ,parseInt(h.substring(2,4),16)
                    ,parseInt(h.substring(4,6),16)];
@@ -696,7 +696,7 @@
             if (
                 this.cH
                 && (this.cH(v) === false)
-            ) return;
+            ) 
         };
 
         this.angle = function (v) {

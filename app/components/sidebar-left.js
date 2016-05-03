@@ -3,7 +3,8 @@
  */
 (function(){
     'use strict';
-    angular.module('app.components')
+    angular
+        .module('app.components')
         .directive('sidebarLeft', ['$rootScope', '$location', sidebarLeft]);
 
     function sidebarLeft(rootScope, location){
@@ -36,7 +37,7 @@
 
                     if(_hasSubMenu){
                         menu.subMenus.forEach(function (sm) {
-                            activeByPath(menu, sm.href[0]==='/'?sm.href:'/'+sm.href)
+                            activeByPath(menu, sm.href[0]==='/'?sm.href:'/'+sm.href);
                         });
                     }
 
@@ -107,14 +108,14 @@
                         if(hasAcSub){
                             removeActive(ac, hasAcSub);
                         }
-                    })
+                    });
                 }
 
                 //Se possui ativos e o atual clicado não possui submenus
                 if(actives.length && !hasSubMenu){
                     actives.forEach(function (ac) {
                         removeActive(ac, angular.isDefined(ac.subMenus));
-                    })
+                    });
                 }
 
                 activeMenu(menu,hasSubMenu);

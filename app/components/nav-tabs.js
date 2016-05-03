@@ -3,7 +3,8 @@
  */
 (function(){
     'use strict';
-    angular.module('app.components')
+    angular
+        .module('app.components')
         .directive('navTabs', ['$timeout', navTabs]);
 
     function navTabs(timeout){
@@ -36,8 +37,8 @@
                 scope.params.forEach(function (tab) {
                     var $content = $($.parseHTML(tab.content));
                     $content.appendTo($("#"+tab.id));
-                })
-            })
+                });
+            });
 
         }
 
