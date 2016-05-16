@@ -1,0 +1,20 @@
+<div>
+    <div class="no-print open" id="{{params.id}}"
+         style="position: fixed; top: 150px; right: 0px; border-radius: 5px 0px 0px 5px; padding: 10px 15px; font-size: 16px; z-index: 999999; cursor: pointer; color: rgb(221, 221, 221); background: rgba(0, 0, 0, 0.701961);"
+        ng-class="{'open': params.open}" ng-click="params.clickOpen()">
+    <i class="fa fa-gear"></i>
+    </div>
+    <div class="no-print"
+         style="padding: 10px; position: fixed; top: 130px; right: 0px; border: 3px solid rgba(0, 0, 0, 0.701961); width: 200px; z-index: 999999; background: rgb(255, 255, 255);"
+        ng-show="params.open">
+        <h4 style="margin: 0 0 5px 0; border-bottom: 1px dashed #ddd; padding-bottom: 3px;">Layout Options</h4>
+        <div class="form-group no-margin" ng-repeat="opt in params.options">
+            <div class=".checkbox"><label><input type="checkbox" ng-change="opt.optFn(opt)" ng-model="opt.model"> {{opt.name}}</label></div>
+        </div>
+        <h4 style="margin: 0 0 5px 0; border-bottom: 1px dashed #ddd; padding-bottom: 3px;">Skins</h4>
+        <div class="form-group no-margin" ng-repeat="skin in params.skins">
+            <div class=".radio"><label><input name="skin" type="radio" ng-change="params.changeSkin(skin)" ng-model="params.model" ng-value="skin.class">
+                {{skin.name}}</label></div>
+        </div>
+    </div>
+</div>

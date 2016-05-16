@@ -64,6 +64,7 @@ body > .header {
   position: absolute;
   width: 220px;
   top: 0;
+  left: 0;
 }
 @media screen and (min-width: 992px) {
   .left-side {
@@ -746,6 +747,9 @@ body > .header .logo .icon {
   body.fixed .row-offcanvas-left.active .sidebar-offcanvas {
     left: 0px;
   }
+}
+.row-offcanvas-left {
+  left: 0;
 }
 /* 
     Dropdown menus

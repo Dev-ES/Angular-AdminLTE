@@ -1,0 +1,29 @@
+{
+  "name": "Angular-AdminLTE",
+  "description": "",
+  "main": "index.html",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.0",
+    "jquery": "^2.2.1",
+    "bootstrap": "^3.3.6",
+    "font-awesome": "^4.5.0",
+    "Ionicons": "ionicons#^2.0.1",
+    "angular-mocks": "^1.5.2",
+    "angular-animate": "^1.5.5",
+    "angular-route": "^1.5.5",
+    "angular-crumble": "^0.2.2"
+  },
+  "resolutions": {
+    "angular": "^1.5.0"
+  }
+}

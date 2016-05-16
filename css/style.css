@@ -1,0 +1,31 @@
+body {
+    position: relative;
+    float: left;
+    overflow: hidden;
+    height: auto;
+    width: 100%;
+}
+
+.row-offcanvas{
+    min-height: 90vh;
+}
+
+/* Menu lateral e view*/
+aside.left-side a:hover{
+    cursor: pointer;
+}
+
+.row-offcanvas .left-side, .row-offcanvas .right-side {
+    height: 100%;
+}
+.row-offcanvas .left-side, .row-offcanvas .right-side, .row-offcanvas{
+    -webkit-transition: left 0.5s ease-in-out, margin-left 0.5s ease-in-out;
+    -moz-transition: left 0.5s ease-in-out, margin-left 0.5s ease-in-out;
+    -o-transition: left 0.5s ease-in-out, margin-left 0.5s ease-in-out;
+    transition: left 0.5s ease-in-out, margin-left 0.5s ease-in-out;
+}
+
+/* Directiva nav-tabs */
+ul.nav li a:hover{
+    cursor: pointer;
+}
